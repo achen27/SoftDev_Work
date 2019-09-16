@@ -16,4 +16,10 @@ fList = fString.split('\n')
 fNewList = []
 for s in fList:
     fNewList.append(s.rsplit(',',1))
-print(fNewList)
+
+#added key value pairs to dictionary
+occupations = {}
+for a in fNewList[1:-2]:
+    occupations[a[0]] = float(a[1])
+
+print(occupations['Management'])

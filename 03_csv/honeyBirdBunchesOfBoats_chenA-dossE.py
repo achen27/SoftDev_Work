@@ -22,7 +22,7 @@ for s in fList:
 #added key value pairs to dictionary
 occupations = {}
 for a in fNewList[1:-2]:
-    occupations[float(a[1])] = a[0]
+    occupations[a[0]] = float(a[1])
 
 #print(occupations['Management'])
 

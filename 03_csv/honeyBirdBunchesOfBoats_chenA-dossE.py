@@ -31,22 +31,40 @@ def randomOcc():
     r = random.randint(1, 998) / 10.0
     #print("random num: " + str(r))
     for o in fNewList[1:-2]:
-        if (r >= 0):
-            #print(o[1])
-            r -= float(o[1])
-            #print("new num: " + str(r))
-        else:
+        r -= float(o[1])
+        if (r <= 0):
             return o[0]
 
-#testing function
+#TESTING
 test = 0
 
+#creating new array to count occurances
 fTest = []
 for s in fList:
     fTest.append(s.rsplit(',',1))
-print(fTest)
-for s in fList[1:-2]:
-    s[1] = 0
-print(fTest)
+#print(fTest)
+for s in fTest[1:-2]:
+    s[1] = str(0)
+#print(fTest)
 
-#while (test < 1000):
+#testing 100000 runs of function
+while (test < 100000):
+    str = randomOcc()
+    for s in fTest:
+        if str == s[0]:
+            s[1] = int(s[1]) + 1
+    test += 1
+
+#calculating percentages of each
+for s in fTest[1:-2]:
+    s[1] = int(s[1]) / 1000.0
+
+#finding difference from actual percentages
+x = 1
+for s in fTest[1:-2]:
+    s[1] = round((float(s[1]) - float(fNewList[x][1])),2)
+    x += 1
+
+#printing results
+for s in fTest[1:-2]:
+    print(s)

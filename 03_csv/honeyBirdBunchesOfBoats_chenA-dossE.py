@@ -47,8 +47,8 @@ for s in fTest[1:-2]:
     s[1] = str(0)
 #print(fTest)
 
-#testing 100000 runs of function
-while (test < 100000):
+#testing many runs of function
+while (test < 1000000):
     str = randomOcc()
     for s in fTest:
         if str == s[0]:
@@ -57,7 +57,7 @@ while (test < 100000):
 
 #calculating percentages of each
 for s in fTest[1:-2]:
-    s[1] = int(s[1]) / 1000.0
+    s[1] = int(s[1]) / 10000.0
 
 #finding difference from actual percentages
 x = 1

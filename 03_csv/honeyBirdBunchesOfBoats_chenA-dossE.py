@@ -67,4 +67,4 @@ for s in fTest[1:-2]:
 
 #printing results
 for s in fTest[1:-2]:
-    print(s)
+    #print(s)

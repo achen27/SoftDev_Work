@@ -13,13 +13,15 @@ def hello_world():
     print(__name__)
     return ("Welcome")
 
+description = "The following table shows data from a CSV file containing information about occupations in the United States. The first item is the name of the occupation and the second is the percentage of the U.S. workforce it comprises."
+
 @app.route("/occupyflaskst")
 def occupier():
     return render_template('occupyflaskst.html',
         tab = "Occupations Table",
         titulo = "Occupations",
         team = "Team Silencio Pd1",
-        descrip = "The following table shows data from a CSV file...",
+        descrip = description,
         randocc = randomOcc(),
         occList = fNewList)
 

@@ -3,22 +3,21 @@
 <html>
   <head>
     <title> {{ tab }} </title>
-    <h1> {{ titulo }} </h1>
-    <h4> {{ team }} </h4>
-    {{ descrip }}
+    <h1 style="text-align:center"> {{ titulo }} </h1>
+    <h4 style="text-align:center"> {{ team }} </h4>
+    <p style="text-align:center">{{ descrip }} <p>
   </head>
   <body>
-    <br> Random Occupation: {{ randocc }} <br>
+    <p style="text-align:center"> Random Occupation: {{ randocc }} <p>
     <table style="width:100%">
       <tr>
         <th>Occupation</th>
         <th>Percentage</th>
-
       </tr>
       {% for arr in occList %}
         <tr>
           <td>{{ arr[0] }}</td>
-          <td>{{ arr[1] }}</td>
+          <td style="text-align:center">{{ arr[1] }}</td>
         </tr>
       {% endfor %}
     </table>

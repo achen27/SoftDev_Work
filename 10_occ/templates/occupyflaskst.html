@@ -4,8 +4,23 @@
   <head>
     <title> {{ tab }} </title>
     <h1> {{ titulo }} </h1>
-    {{ team }}
+    <h4> {{ team }} </h4>
+    {{ descrip }}
   </head>
   <body>
+    <br> Random Occupation: {{ randocc }} <br>
+    <table style="width:100%">
+      <tr>
+        <th>Occupation</th>
+        <th>Percentage</th>
+
+      </tr>
+      {% for arr in occList %}
+        <tr>
+          <td>{{ arr[0] }}</td>
+          <td>{{ arr[1] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
   </body>
 <html>

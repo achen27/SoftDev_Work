@@ -18,11 +18,10 @@ def occupier():
     return render_template('occupyflaskst.html',
         tab = "Occupations Table",
         titulo = "Occupations",
-        team = "Team Silencio Pd1")
-
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
+        team = "Team Silencio Pd1",
+        descrip = "The following table shows data from a CSV file...",
+        randocc = randomOcc(),
+        occList = fNewList)
 
 #opening file
 f = open("occupations.csv","r")
@@ -38,10 +37,18 @@ fNewList = []
 for s in fList:
     fNewList.append(s.rsplit(',',1))
 
+fNewList = fNewList[1:-2]
+
+
 def randomOcc():
     r = random.randint(1, 998) / 10.0
     #print("random num: " + str(r))
-    for o in fNewList[1:-2]:
+    for o in fNewList:
         r -= float(o[1])
         if (r <= 0):
             return o[0]
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()

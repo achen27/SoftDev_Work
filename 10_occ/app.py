@@ -13,7 +13,7 @@ def hello_world():
     print(__name__)
     return ("Welcome")
 
-description = "The following table shows data from a CSV file containing information about occupations in the United States. The first item is the name of the occupation and the second is the percentage of the U.S. workforce it comprises."
+description = "The following table shows data from a CSV file containing information about occupations in the United States. The first item is the name of the occupation and the second is the percentage of the U.S. workforce it comprises.\nThe Random Occupation Selector returns an occupation based of the weighted percentages."
 
 @app.route("/occupyflaskst")
 def occupier():

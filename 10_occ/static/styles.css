@@ -1,3 +1,7 @@
+body {
+  background-color: whitesmoke;
+}
+
 table {
   width:70%;
   margin-left:15%;
@@ -12,6 +16,6 @@ table, th, td {
   border: 1px solid black;
 }
 
-h1, h4, p, td {
+h1, h3, h4, p, td {
   text-align: center;
 }

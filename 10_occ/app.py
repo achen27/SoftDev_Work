@@ -13,13 +13,14 @@ def hello_world():
     print(__name__)
     return ("Welcome")
 
+#long string for description of webpage
 description = "The following table shows data from a CSV file containing information about occupations in the United States. The first item is the name of the occupation and the second is the percentage of the U.S. workforce it comprises.\nThe Random Occupation Selector returns an occupation based of the weighted percentages."
 
 @app.route("/occupyflaskst")
 def occupier():
     return render_template('occupyflaskst.html',
-        tab = "Occupations Table",
-        titulo = "Occupations",
+        tab = "Occupations Table", #name displayed on tab
+        titulo = "Occupations", #main title
         team = "Team Silencio Pd1",
         descrip = description,
         randocc = randomOcc(),
@@ -39,15 +40,16 @@ fNewList = []
 for s in fList:
     fNewList.append(s.rsplit(',',1))
 
+#removing uneeded lines
 fNewList = fNewList[1:-2]
 
 
 def randomOcc():
-    r = random.randint(1, 998) / 10.0
+    r = random.randint(1, 998) / 10.0 #getting random int ftom 0.1 to 99.8
     #print("random num: " + str(r))
     for o in fNewList:
-        r -= float(o[1])
-        if (r <= 0):
+        r -= float(o[1]) #subtracing percentages from random int until
+        if (r <= 0):        #it reaches 0 or lower
             return o[0]
 
 

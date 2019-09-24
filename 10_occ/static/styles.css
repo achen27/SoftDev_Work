@@ -19,3 +19,15 @@ table, th, td {
 h1, h3, h4, p, td {
   text-align: center;
 }
+
+a:link {
+  color: royalblue;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  color: red;
+}

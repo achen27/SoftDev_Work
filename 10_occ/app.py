@@ -38,11 +38,11 @@ fList = fString.split('\n')
 #creating new array with each element as an array with name and percentage
 fNewList = []
 for s in fList:
-    fNewList.append(s.rsplit(',',1))
+    fNewList.append(s.rsplit(',',2))
 
 #removing uneeded lines
 fNewList = fNewList[1:-2]
-
+print(fNewList)
 
 def randomOcc():
     r = random.randint(1, 998) / 10.0 #getting random int ftom 0.1 to 99.8

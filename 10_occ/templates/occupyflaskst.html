@@ -18,7 +18,8 @@
       {# loop to create table values #}
       {% for arr in occList %}
         <tr>
-          <td>{{ arr[0] }}</td>
+          {# adding link to each occupation #}
+          <td><a href={{ arr[2] }} target="_blank">{{ arr[0] }}</a></td>
           <td>{{ arr[1] }}</td>
         </tr>
       {% endfor %}

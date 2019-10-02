@@ -1,6 +1,6 @@
 #Amber Chen & Vishwa Sofat
 #SoftDev1 pd1
-#K09: ’Tis Not a Race -- But You Will Go Faster
+#K10: Jinja Tuning
 #2019-09-20
 
 from flask import Flask, render_template

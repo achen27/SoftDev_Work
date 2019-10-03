@@ -1,4 +1,5 @@
-# Amanda Chen
+
+# Tiffany Cao & Amanda Chen
 # SoftDev1 pd1
 # K15 -- Do I Know You?
 # 2019-10-02
@@ -20,7 +21,7 @@ def login():
     print(app)
     if 'user' in session: #keeps user logged in
          return redirect (url_for("welcome"))
-    else:
+    else: #for new user
         return render_template('login.html',
                                 team = name,
                                 rost = roster)
@@ -36,7 +37,8 @@ def welcome(): #welcome page for users that are logged in
 @app.route("/logout")
 def logout(): #logout page redirected from logout button on welcome page
     print(app)
-    session.pop('user')
+    session.pop('user') #removes session info
+    session.pop('pass')
     return render_template('logout.html', #back button goes back to login
                             team = name,
                             rost = roster)
@@ -51,10 +53,10 @@ def authenticate(): #checks to match user and pass
     if (request.args['username'] == username and request.args['password'] == password) :
        return redirect (url_for("welcome")) #goes to welcome page if credentials are correct
     else:
-        return redirect (url_for("err")) #goes to error page is wrong
+       return redirect (url_for("err")) #goes to error page is wrong
 
 
-@app.route("/error")
+@app.route("/error") #error page
 def err():
     print(request.form)
     r = ''
@@ -63,6 +65,7 @@ def err():
     else:
         r = "Password does not match Username. Try again."
     session.pop('user')
+    session.pop('pass')
     return render_template('error.html', #back button goes back to login
                             team = name,
                             rost = roster,

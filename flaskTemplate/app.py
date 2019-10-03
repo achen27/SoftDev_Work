@@ -1,3 +1,8 @@
+# Amanda Chen
+# SoftDev1 pd1
+# K<n> -- <Title/Topic/Summary>
+# <yyyy>-<mm>-<dd>
+
 from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 

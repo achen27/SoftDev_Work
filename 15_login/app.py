@@ -18,7 +18,7 @@ app.secret_key = "abcd"
 
 def login():
     print(app)
-    if 'user' in session:
+    if 'user' in session: #keeps user logged in
          return redirect (url_for("welcome"))
     else:
         return render_template('login.html',
@@ -26,7 +26,7 @@ def login():
                                 rost = roster)
 
 @app.route("/welcome")
-def welcome():
+def welcome(): #welcome page for users that are logged in
     print(app)
     return render_template('welcome.html',
                             team = name,
@@ -34,36 +34,36 @@ def welcome():
                             name = session['user'])
 
 @app.route("/logout")
-def logout():
+def logout(): #logout page redirected from logout button on welcome page
     print(app)
     session.pop('user')
-    return render_template('logout.html',
+    return render_template('logout.html', #back button goes back to login
                             team = name,
                             rost = roster)
 
 @app.route("/auth")
-def authenticate():
+def authenticate(): #checks to match user and pass
     print(url_for("login"))
     session['user'] = request.args['username']
     session['pass'] = request.args['password']
     print(session['user'])
     print(session['pass'])
     if (request.args['username'] == username and request.args['password'] == password) :
-       return redirect (url_for("login"))
+       return redirect (url_for("welcome")) #goes to welcome page if credentials are correct
     else:
-        return redirect (url_for("err"))
+        return redirect (url_for("err")) #goes to error page is wrong
 
 
 @app.route("/error")
 def err():
     print(request.form)
     r = ''
-    if (session['user'] != username):
+    if (session['user'] != username): #checks type of error
         r = "Username does not exist. Try again."
     else:
         r = "Password does not match Username. Try again."
     session.pop('user')
-    return render_template('error.html',
+    return render_template('error.html', #back button goes back to login
                             team = name,
                             rost = roster,
                             reason = r)

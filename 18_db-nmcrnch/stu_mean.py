@@ -28,7 +28,7 @@ id = allCourses[0][1] #keeps track of ids
 name = allCourses[0][0] #keeps track of names
 #print(allCourses.fetchall())
 #new table with student’s name, id, and average
-command = "CREATE TABLE IF NOT EXISTS stu_avg (name TEXT, id INTEGER primary key, average REAL)"
+command = "CREATE TABLE IF NOT EXISTS stu_avg (name TEXT, id INTEGER primary key, average REAL, numCourses INTEGER)"
 c.execute(command)
 
 count = 1; #keeps track of number of courses
@@ -51,7 +51,7 @@ for row in allCourses[1:]:
         #print(type(sum/count))
 
         #print('INSERT INTO stu_avg VALUES (\"'+ name + '\", ' + str(id) + ', ' + str(sum/count) + ');')
-        command = 'INSERT INTO stu_avg VALUES (\"'+ name + '\", ' + str(id) + ', ' + str(sum/count) + ');'
+        command = 'INSERT INTO stu_avg VALUES (\"'+ name + '\", ' + str(id) + ', ' + str(sum/count) + ', ' + str(count) + ');'
         c.execute(command)
         name = row[0]
         id = row[1]
@@ -59,7 +59,7 @@ for row in allCourses[1:]:
         sum = row[2]
 
 #insert last student after loop ends
-command = 'INSERT INTO stu_avg VALUES (\"'+ name + '\", ' + str(id) + ', ' + str(sum/count) + ');'
+command = 'INSERT INTO stu_avg VALUES (\"'+ name + '\", ' + str(id) + ', ' + str(sum/count) + ', ' + str(count) + ');'
 c.execute(command)
 
 #command = "SELECT * FROM stu_avg;"

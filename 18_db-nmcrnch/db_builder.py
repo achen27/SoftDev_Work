@@ -44,6 +44,10 @@ with open('courses.csv', newline='') as csvStud:
         command = 'INSERT INTO courses (code, mark, id) VALUES (\"'+ row['code'] + '\", ' + row['mark'] + ', ' + row['id']+ ');'
         c.execute(command)
 
+def addCourse(code, mark, id):
+    command = 'INSERT INTO courses (code, mark, id) VALUES (\"'+ code + '\", ' + mark + ', ' + id + ');'
+    c.execute(command)
+
 #==========================================================
 
 db.commit() #save changes

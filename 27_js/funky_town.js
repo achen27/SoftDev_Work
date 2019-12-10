@@ -24,10 +24,10 @@ var gcd = function(a,b){
 };
 
 // console.log(gcd(16,8));
+
 var students = ["a","b","c","d"]
 var randomStudent = function(){
-    console.log(Math.round(Math.random()*students.length));
-    var i = console.log(Math.round(Math.random()*students.length));
+    var i = Math.round(Math.random()*students.length);
     return students[i];
 };
 

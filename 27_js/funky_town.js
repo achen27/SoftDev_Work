@@ -1,3 +1,8 @@
+// Amanda Chen & Amanda Zheng
+// SoftDev1 pd1
+// K27 -- Sequential Progression
+// 2019-12-10
+
 var fact = function(n){
     if(n <= 1){
       return 1;

@@ -1,6 +1,11 @@
+//Amanda Chen & Elizabeth Doss
+//SoftDev1 pd1
+//K#29 -- Sequential Progression III
+//2019-12-12
+
 var changeheading = function(e) {
   var h = document.getElementById("h");
-  console.log(this);
+  //console.log(this);
   h.innerHTML = this.innerHTML;
 }
 
@@ -25,7 +30,7 @@ for (var i = 0; i < lis.length; i++){
 var additem = function(e) {
   ////gets ordered list of items, creates a new element, appends it to the ordered list
   var list = document.getElementById("thelist");
-  console.log(list);
+  //console.log(list);
   var item = document.createElement("li");
   item.addEventListener('mouseover', changeheading);
   item.addEventListener("mouseout", changeback);
@@ -40,15 +45,48 @@ var button = document.getElementById("b");
 button.addEventListener("click", additem);
 
 var fib = function(n){
-    if(n < 2) {
-      return 1;
-    }
-    return fib(n-2)+fib(n-1);
+    if(n == 0) return 0;
+	if (n == 1) return 1;
+    return fib(n-1)+fib(n-2);
 };
 
-var fibs = [0,1,1];
+var addfib = function(e) {
+	//console.log(e);
+	var fiblist = document.getElementById("fiblist");
+    //console.log(list);
+    var item = document.createElement("li");
+	var newFib = fiblist.getElementsByTagName("li").length;
+	item.innerHTML = fib(newFib);
+	f = document.getElementsByTagName("li");
+	fiblist.appendChild(item);
+};
 
-// var addfib = funtion(e){
-//   console.log(e);
-//
-// }
+var counter = 0;
+var fibs = [0,1];
+
+var fib2 = function(n) {
+	counter++;
+	if (n < 2){
+		return fibs[n];
+	}
+	else{
+		fibs.push(fibs[n-1] + fibs[n-2]);
+		//console.log(fibs);
+		return fibs[n];
+	}
+}
+
+var addfib2 = function(e) {
+	////appends fib numbers to ordered list using dynamic programming
+	//console.log(e);
+	var fiblist = document.getElementById("fiblist");
+    //console.log(list);
+    var item = document.createElement("li");
+	var newFib = fib2(counter);
+	item.innerHTML = newFib;
+	f = document.getElementsByTagName("li");
+	fiblist.appendChild(item);
+};
+
+var fb = document.getElementById("fb");
+fb.addEventListener("click", addfib)

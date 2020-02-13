@@ -1,6 +1,6 @@
 // Amanda "Amber" Chen
 // SoftDev1 pd1
-//
+//K07 -- They lock us in the tower whenever we get caught ...which is often
 // 2020-02-11
 
 var startButton = document.getElementById('start');
@@ -15,7 +15,7 @@ startButton.addEventListener('click',start);
 
 function stop(){
   startButton.addEventListener('click',start);
-  window.cancelAnimationFrame(ani);
+  ani = window.cancelAnimationFrame(ani);
 }
 
 
@@ -23,6 +23,7 @@ function start(event){
   startButton.removeEventListener('click',start);
   stopButton.addEventListener('click',stop);
   ani = window.requestAnimationFrame(animate);
+  console.log(ani);
 }
 
 function animate(){

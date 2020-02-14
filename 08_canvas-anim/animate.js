@@ -15,22 +15,27 @@ var i = true;
 var ani;
 
 //bounce
-var x = 50;
-var y = 50;
+var logo = new Image()
+logo.src = "dvd.png"
+var x = Math.floor(Math.random()*350);
+var y = Math.floor(Math.random()*450);
 var dx = 1;
 var dy = 1;
 var ani2;
+var running = false;
 
 contx.strokeRect(0,0,600,600);
 startButton.addEventListener('click',animate);
 stopButton.addEventListener('click',stop);
-movie.addEventListener('click',bounce);
+movie.addEventListener('click',startBounce);
 
 function stop(){
   window.cancelAnimationFrame(ani);
   window.cancelAnimationFrame(ani2);
-  x = 50;
-  y = 50;
+  x = Math.floor(Math.random()*350);
+  y = Math.floor(Math.random()*450);
+  dx = 1;
+  dy = 1;
 }
 
 function animate(){
@@ -52,28 +57,26 @@ function animate(){
     ani = window.requestAnimationFrame(animate);
 }
 
+function startBounce(){
+  x = Math.floor(Math.random()*350);
+  y = Math.floor(Math.random()*450);
+  dx = 1;
+  dy = 1;
+  bounce();
+}
+
 function bounce(){
   window.cancelAnimationFrame(ani2);
   contx.clearRect(0,0,600,600);
+  contx.drawImage(logo,20,100,480,300,x,y,200,100)
   contx.strokeRect(0,0,600,600);
-  contx.fillRect(x,y,50,30);
-  // if (x == 0){
-  //
-  // }
-  if (x+30 == 600){
+  if (x == 0 || x+200 == 600){
     dx = -dx;
   }
-  // if (y == 0){
-  //
-  // }
-  // if (y == 600){
-  //
-  // }
+  if (y == 0 || y+100 == 600){
+    dy = -dy;
+  }
   x += dx;
   y += dy;
   ani2 = window.requestAnimationFrame(bounce);
 }
-
-//var logo = new Image()
-//logo.src = "logo_dvd.jpg"
-//ctx.drawImage(?)

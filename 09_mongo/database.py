@@ -10,6 +10,6 @@ rString = f.read()
 
 rList = json.loads(rString)
 
-for r in rList:
-    # print(r)
-    restaurants.insert_one(r)
+#for r in rList:
+print(rList[0])
+restaurants.insert_one(rList[0])

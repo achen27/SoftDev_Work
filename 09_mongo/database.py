@@ -12,5 +12,4 @@ rList = json.loads(rString)
 
 for r in rList:
     # print(r)
-    d = json.loads(r)
-    restaurants.insert_one(d)
+    restaurants.insert_one(r)

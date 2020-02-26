@@ -5,7 +5,7 @@ db = c.test_database
 restaurants = db.restaurants
 
 f = open("primer-dataset.json","r")
-rString = r.read()
+rString = f.read()
 
 rList = rString.split('\n')
 

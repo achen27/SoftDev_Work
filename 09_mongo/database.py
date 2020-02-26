@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import json
 
 c = MongoClient()
 db = c.test_database
@@ -10,4 +11,5 @@ rString = f.read()
 rList = rString.split('\n')
 
 for r in rList:
-    restaurants.insert_one(r)
+    d = json.loads(r)
+    restaurants.insert_one(d)

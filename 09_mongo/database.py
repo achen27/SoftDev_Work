@@ -1,16 +1,18 @@
-from pymongo import MongoClient
+# from pymongo import MongoClient
 import json
 
-c = MongoClient()
-db = c.test_database
-restaurants = db.restaurants
+# c = MongoClient()
+# db = c.test_database
+# restaurants = db.restaurants
 
 f = open("primer-dataset.json","r")
 rString = f.read()
-print(rString)
+# print(rString)
 
-rList = json.loads(rString)
+rList = rString.split('\n')
 
-#for r in rList:
-print(rList[0])
-restaurants.insert_one(rList[0])
+for r in rList:
+#print(rList[0])
+    t = json.loads(rList[r])
+    #print(type(t))
+    restaurants.insert_one(t)

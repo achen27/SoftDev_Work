@@ -1,9 +1,9 @@
-# from pymongo import MongoClient
+from pymongo import MongoClient
 import json
 
-# c = MongoClient()
-# db = c.test_database
-# restaurants = db.restaurants
+c = MongoClient()
+db = c.test_database
+restaurants = db.restaurants
 
 f = open("primer-dataset.json","r")
 rString = f.read()

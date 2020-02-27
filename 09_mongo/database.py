@@ -8,7 +8,7 @@ restaurants = db.restaurants
 f = open("primer-dataset.json","r")
 rString = f.read()
 
-rList = json.load(rString)
+rList = json.loads(rString)
 
 #for r in rList:
 print(rList[0])

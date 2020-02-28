@@ -1,5 +1,6 @@
 from pprint import pprint
 from pymongo import MongoClient
+import re
 
 c = MongoClient()
 db = c.test_database
@@ -27,7 +28,7 @@ def find_zip_grade(z, g):
         for c in cursor:
                 pprint(c)
 
-find_zip_grade("10028","A")
+# find_zip_grade("10028","A")
 
 # All restaurants in a specified zip code with a score below a specified threshold.
 def find_zip_lograde(z, g):
@@ -35,13 +36,13 @@ def find_zip_lograde(z, g):
         for c in cursor:
                 pprint(c)
 
-find_zip_lograde("10028","B")
+# find_zip_lograde("10028","B")
 
 # Something more clever.
-#All restaurants beginning with a specified letter.
-def  find_zip_letter(z, l):
-	cursor = restaurants.find({"address.zipcode": z, "name": {"$regex": "/^B/","$options" :'i'}})
-        for c in cursor:
+# All restaurants in specified zip code with names containing specified string.
+def  find_zip_letter(z, n):
+	cursor = restaurants.find({"address.zipcode": z, "name": re.compile(n)})
+	for c in cursor:
                 pprint(c)
 
-find_zip_letter("10459","B")
+#find_zip_letter("10459","King")

@@ -1,0 +1,17 @@
+from pymongo import MongoClient
+
+c = MongoClient()
+db = c.test_database
+restaurants = db.restaurants
+
+# All restaurants in a specified borough.
+def rest_borough(b):
+	cursor = restaurants.find({ "borough": b })
+	for c in cursor:
+		print(c)
+rest_
+# All restaurants in a specified zip code.
+# All restaurants in a specified zip code and with a specified grade.
+# All restaurants in a specified zip code with a score below a specified threshold.
+# Something more clever.
+

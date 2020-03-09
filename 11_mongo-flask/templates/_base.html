@@ -25,14 +25,48 @@
     </nav>
 </header>
 <main>
-    <p class="caption">Choose your filters</p>
     <div class="container">
-        <br><br>
+      <h5>Filter Meteors By Mass</h5>
+      <form method="post" action={{ url_for('results') }}>
+        <div class="input-field inline">
+          <input placeholder="Mass" id="mass" type="text" class="validate">
+        </div>
         <br>
-        <a class="waves-effect waves-light btn">button</a>
-
+        <a type="submit" class="waves-effect waves-light btn">Submit</a>
+      </form>
+      <br><br><hr>
     </div>
-</main>
+    <div class="container">
+      <h5>Filter Meteors By Location</h5>
+      <div class="row">
+        <div class="input-field col s6">
+            <input placeholder="Longitude" id="longitude" type="text" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Latitude" id="latitude" type="text" class="validate">
+          </div>
+        <a class="waves-effect waves-light btn" href={{ url_for('results') }}>Submit</a>
+        <br><br><hr>
+      </div>
+    </div>
+    <div class="container">
+      <h5>Filter Meteors By Class</h5>
+      <div class="input-field inline">
+        <input placeholder="Class" id="class" type="text" class="validate">
+      </div>
+      <br>
+      <a class="waves-effect waves-light btn" href={{ url_for('results') }}>Submit</a>
+      <br><br><hr>
+    </div>
+    <div class="container">
+      <h5>Filter Meteors By Year</h5>
+      <div class="input-field inline">
+        <input placeholder="Year" id="year" type="text" class="validate">
+      </div>
+      <br>
+      <a class="waves-effect waves-light btn" href={{ url_for('results') }}>Submit</a>
+      <br><br><hr>
+    </div>
 
 <footer class="page-footer">
     <div class="footer-copyright">

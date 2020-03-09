@@ -16,12 +16,29 @@ def index():
 @app.route('/results')
 def results():
     mass = request.args.get('mass')
+    print(request.form.keys())
+    # print(mass)
     xcor = request.args.get('xcor')
+    # print("xcor: "+xcor)
     ycor = request.args.get('ycor')
+    # print("ycor: "+ycor)
     mclass = request.args.get('mclass')
+    # print("class: "+mclass)
     year = request.args.get('year')
-    return render_template("list.html", meteors = m)
+    # print("year: "+year)
+    m = []
+    if mass:
+        m = filter_mass(int(mass))
+    elif xcor and ycor:
+        m = filter_coords(xcor,ycor)
+    elif mclass:
+        m = filter_class(mclass)
+    elif year:
+        m = filter_year(year)
+
+    print(m)
+    return render_template("results.html", meteors = m)
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0')
+    app.run()

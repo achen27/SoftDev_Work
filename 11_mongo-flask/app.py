@@ -3,7 +3,7 @@
 # K11 -- Ay Mon Go Git It From Yer Flask
 # 2020-03-08
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from utl import mongogo
 
 app = Flask(__name__)
@@ -20,8 +20,8 @@ def results():
     ycor = request.args.get('ycor')
     mclass = request.args.get('mclass')
     year = request.args.get('year')
-    ß
     return render_template("list.html", meteors = m)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.debug = True
+    app.run(host='0.0.0.0')

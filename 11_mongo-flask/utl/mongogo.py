@@ -1,8 +1,6 @@
 from pymongo import MongoClient
 from bson.json_util import loads
 
-app = Flask(__name__)
-
 client = MongoClient()
 db = client.RAM
 collection = db.meteors
@@ -11,7 +9,7 @@ collection = db.meteors
 def createDB():
     client.drop_database('RAM')
     file = open("doc/meteorites.json","r")
-    data = file.readlines()
+    data = file.read()
     meteors = loads(data)
     collection.insert_many(meteors)
     file.close()

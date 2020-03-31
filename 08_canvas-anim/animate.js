@@ -71,10 +71,10 @@ function bounce(){
   contx.fillRect(0,0,600,600);
   contx.drawImage(logo,20,100,480,300,x,y,200,100)
   contx.strokeRect(0,0,600,600);
-  if (x == 0 || x+200 == 600){
+  if (x-10 == 0 || x+200 == 600){
     dx = -dx;
   }
-  if (y == 0 || y+100 == 600){
+  if (y-10 == 0 || y+100 == 600){
     dy = -dy;
   }
   x += dx;

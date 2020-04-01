@@ -1,0 +1,24 @@
+#1
+Display a table with two rows and three columns
+Clicking on any cell will display an alert with the contents of that cell
+
+#2
+Display a table with two rows and three columns
+Clicking on any cell will display an alert with the contents of that cell, then
+the contents of the row, and finally the contents of the table
+Alerts display from innermost to outermost
+
+#3
+Display a table with two rows and three columns
+Order changed after adding a true parameter
+Shows table then cell then row
+Seems like the function goes from the outermost html to the innermost but will
+display from innermost to outmost unless specified otherwise
+The stopPropagation function stops the alert after one pass (the first alert)
+
+#4
+Display a table with two rows and three columns
+Clicking on any cell will display an alert with the contents of the table, then
+the contents of the row, and finally the the contents of that cell
+stopPropagation makes it so that only the first alert is displayed
+The orders that the event listeners are attached does not matter

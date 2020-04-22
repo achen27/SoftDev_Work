@@ -25,7 +25,7 @@ var show = function(e){
     console.log(datasety[0].year)
 
     // Creates proper margins to fit in window
-    var margin = {top: 50, right: 50, bottom: 50, left: 50}
+    var margin = {top: 50, right: 50, bottom: 50, left: 100}
       , width = window.innerWidth - margin.left - margin.right-20 // Use the window's width
       , height = window.innerHeight - margin.top - margin.bottom - 150; // Use the window's height - int to accomodate header
 
